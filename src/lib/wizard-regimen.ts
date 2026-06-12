@@ -377,7 +377,7 @@ export function calcularResultado(r: Respuestas): ResultadoWizard {
   // ── Caso 4 (principal): RMT vs RER ───────────────────────────────────────
   // El RMT es mejor que el RER en casi todos los escenarios:
   // RER cobra 1.5% sobre ventas brutas aunque no haya ganancia.
-  // RMT cobra solo sobre la ganancia real y con tasa menor (10%).
+  // RMT cobra solo sobre la ganancia real: 10% hasta 15 UIT de utilidad, 29.5% por el exceso.
 
   const advertencias: string[] = [];
 

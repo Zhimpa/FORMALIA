@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { calcularImpuestoRenta } from "@/lib/calculadoras";
+import { TASAS_IR, UIT } from "@/config/parametros-peru";
 import { cn } from "@/lib/utils";
 
 const fmtS = (n: number) =>
@@ -80,7 +81,7 @@ export function CalculadoraImpuestoRenta() {
                 <tr className="border-b border-neutral-100">
                   <td className="py-2 text-neutral-600">
                     Tramo hasta 15 UIT ({fmtS(resultado.detalleRMT.tramoBase)})
-                    <span className="ml-2 text-xs text-neutral-400">× 10%</span>
+                    <span className="ml-2 text-xs text-neutral-400">× {TASAS_IR.rmt.tramoHasta15UIT.valor}%</span>
                   </td>
                   <td className="py-2 text-right font-medium text-neutral-800">{fmtS(resultado.detalleRMT.impuestoBase)}</td>
                 </tr>
@@ -100,7 +101,7 @@ export function CalculadoraImpuestoRenta() {
               </tbody>
             </table>
             <p className="text-xs text-neutral-500">
-              El límite de 15 UIT en 2026 equivale a {fmtS(resultado.detalleRMT.limite15UIT)} (UIT = S/ 5,500). Utilidad por encima de ese monto paga la tasa de 29.5% igual que en RG.
+              El límite de 15 UIT en 2026 equivale a {fmtS(resultado.detalleRMT.limite15UIT)} (UIT = S/ {UIT.valor.toLocaleString("es-PE")}). Utilidad por encima de ese monto paga la tasa de {TASAS_IR.rmt.tramoExceso15UIT.valor}% igual que en RG.
             </p>
           </div>
         </>

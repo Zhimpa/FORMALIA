@@ -251,6 +251,31 @@ describe("calcularImpuestoRenta", () => {
       expect(r.tasaEfectivaRMT).toBeLessThan(29.5);
     }
   });
+
+  describe("escala progresiva RMT — casos de referencia", () => {
+    it("utilidad S/ 82,500 (exactamente 15 UIT) → IR = S/ 8,250 (todo al 10%)", () => {
+      const r = calcularImpuestoRenta(82_500);
+      // tramo base: 82,500 × 10% = 8,250
+      expect(r.detalleRMT.tramoBase).toBe(82_500);
+      expect(r.detalleRMT.impuestoBase).toBe(8_250);
+      // sin exceso
+      expect(r.detalleRMT.tramoExceso).toBe(0);
+      expect(r.detalleRMT.impuestoExceso).toBe(0);
+      expect(r.impuestoRMT).toBe(8_250);
+    });
+
+    it("utilidad S/ 100,000 → IR = 8,250 + 29.5% × 17,500 = S/ 13,412.50", () => {
+      const r = calcularImpuestoRenta(100_000);
+      // tramo 1: 82,500 × 10% = 8,250
+      expect(r.detalleRMT.tramoBase).toBe(82_500);
+      expect(r.detalleRMT.impuestoBase).toBe(8_250);
+      // tramo 2: (100,000 − 82,500) × 29.5% = 17,500 × 0.295 = 5,162.50
+      expect(r.detalleRMT.tramoExceso).toBe(17_500);
+      expect(r.detalleRMT.impuestoExceso).toBe(5_162.5);
+      // total: 8,250 + 5,162.50 = 13,412.50
+      expect(r.impuestoRMT).toBe(13_412.5);
+    });
+  });
 });
 
 // ---------------------------------------------------------------------------

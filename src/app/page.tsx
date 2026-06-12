@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { UIT, RMV, IGV as IGV_PARAM, RMT, TASAS_IR } from "@/config/parametros-peru";
+import { UIT, RMV, IGV as IGV_PARAM, RMT, TASAS_IR, LIBROS_CONTABLES } from "@/config/parametros-peru";
 import { Tooltip } from "@/components/ui/Tooltip";
 import { UltimaVerificacion } from "@/components/UltimaVerificacion";
 
@@ -262,7 +262,9 @@ function MockHeroUI() {
           </div>
           <div>
             <p className="text-lg font-bold text-white">Régimen MYPE Tributario</p>
-            <p className="text-sm font-medium text-acento-400">IR: {TASAS_IR.rmt.tramoHasta15UIT.valor}% sobre utilidades anuales</p>
+            <p className="text-xs leading-snug text-acento-400">
+              IR anual: {TASAS_IR.rmt.tramoHasta15UIT.valor}% hasta 15 UIT (S/ {TASAS_IR.rmt.limite15UITEnSoles.valor.toLocaleString("es-PE")} en 2026); {TASAS_IR.rmt.tramoExceso15UIT.valor}% por el exceso
+            </p>
           </div>
         </div>
 
@@ -271,7 +273,7 @@ function MockHeroUI() {
           {[
             `Hasta S/ ${(RMT.topeIngresosAnual.valor / 1_000_000).toFixed(2).replace(".", ",")}M de ingresos anuales`,
             `Pago a cuenta mensual: ${TASAS_IR.pagoACuentaMinimo.valor}%`,
-            "2 libros contables obligatorios",
+            `3 libros contables (hasta ${LIBROS_CONTABLES.tramo1.topeUIT.valor} UIT de ingresos)`,
             "Emite facturas y boletas electrónicas",
           ].map((b) => (
             <li key={b} className="flex items-center gap-2.5 text-sm text-marca-200">
