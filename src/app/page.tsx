@@ -221,8 +221,8 @@ function SeccionHero() {
               <UltimaVerificacion fecha="junio 2026" fuente="SUNAT / MEF / MTPE" className="border-white/20 bg-white/10 text-marca-200" />
             </div>
 
-            {/* Disclaimer */}
-            <p className="mt-3 text-xs text-marca-500">
+            {/* Disclaimer — text-marca-300 = 8.1:1 sobre bg-marca-900 ✓ AA */}
+            <p className="mt-3 text-xs text-marca-300">
               Información con fines educativos. No constituye asesoría tributaria ni legal.
               Consulta con un contador público colegiado para decisiones específicas.
             </p>
@@ -541,7 +541,7 @@ function SeccionCTAFinal() {
             ] as [string, string][]
           ).map(([label, valor]) => (
             <span key={label} className="flex items-center gap-1.5">
-              <span className="text-marca-500">{label}</span>
+              <span className="text-marca-300">{label}</span>
               <span className="font-semibold text-marca-200">{valor}</span>
             </span>
           ))}

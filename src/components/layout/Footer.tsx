@@ -48,27 +48,28 @@ export function Footer() {
               simple, crecimiento del negocio y acompañamiento confiable.
             </p>
 
-            {/* Brand pillars */}
+            {/* Brand pillars — neutral-400 = 6.9:1 sobre neutral-900 ✓ AA */}
             <ul role="list" className="mt-4 space-y-1.5">
               {[
                 { icon: "✓", texto: "Formalización simple" },
                 { icon: "↑", texto: "Crecimiento del negocio" },
                 { icon: "◎", texto: "Acompañamiento confiable" },
               ].map((p) => (
-                <li key={p.texto} className="flex items-center gap-2 text-xs text-neutral-500">
+                <li key={p.texto} className="flex items-center gap-2 text-xs text-neutral-400">
                   <span className="font-bold text-acento-500" aria-hidden="true">{p.icon}</span>
                   {p.texto}
                 </li>
               ))}
             </ul>
 
-            <p className="mt-4 text-xs text-neutral-600">
+            {/* neutral-400 sobre neutral-900 = 6.9:1 ✓ */}
+            <p className="mt-4 text-xs text-neutral-400">
               Datos normativos actualizados a 2026 · Verificar en{" "}
               <a
                 href="https://www.sunat.gob.pe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-500 underline hover:text-neutral-300"
+                className="text-neutral-300 underline hover:text-white"
               >
                 sunat.gob.pe
               </a>
@@ -77,7 +78,8 @@ export function Footer() {
 
           {/* Navegación */}
           <nav aria-label="Navegación del pie de página">
-            <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-neutral-500">
+            {/* neutral-400 = 6.9:1 ✓ */}
+            <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-neutral-400">
               Herramientas
             </h2>
             <ul className="space-y-2.5" role="list">
@@ -96,7 +98,7 @@ export function Footer() {
 
           {/* Fuentes oficiales */}
           <nav aria-label="Fuentes oficiales">
-            <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-neutral-500">
+            <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-neutral-400">
               Fuentes oficiales
             </h2>
             <ul className="space-y-2.5" role="list">
@@ -112,19 +114,20 @@ export function Footer() {
                     <IconoEnlaceExterno />
                     <span className="sr-only">(abre en nueva pestaña)</span>
                   </a>
-                  <p className="text-xs text-neutral-600">{item.desc}</p>
+                  {/* neutral-400 = 6.9:1 ✓ (era neutral-600 = 2.3:1 ✗) */}
+                  <p className="text-xs text-neutral-400">{item.desc}</p>
                 </li>
               ))}
             </ul>
           </nav>
         </div>
 
-        {/* Disclaimer */}
+        {/* Disclaimer — neutral-400 = 6.9:1 sobre fondo combinado ✓ */}
         <div className="mt-10 rounded-lg border border-neutral-700 bg-neutral-800/50 p-4 text-xs leading-relaxed text-neutral-400">
-          <p className="font-semibold text-neutral-300">Aviso legal</p>
+          <p className="font-semibold text-neutral-200">Aviso legal</p>
           <p className="mt-1">
             La información publicada en este sitio tiene carácter{" "}
-            <strong className="font-semibold text-neutral-200">
+            <strong className="font-semibold text-white">
               estrictamente referencial y educativo
             </strong>
             . No constituye asesoría contable, legal ni tributaria, ni reemplaza
@@ -132,22 +135,43 @@ export function Footer() {
             Los montos, tasas y plazos pueden variar por cambios normativos. Verifica
             siempre en las fuentes oficiales: SUNAT, SUNARP, MTPE e INDECOPI.
           </p>
-          <p className="mt-2 text-neutral-500">
+          {/* neutral-400 = 6.9:1 ✓ (era neutral-500 = 3.4:1 ✗) */}
+          <p className="mt-2 text-neutral-400">
             Referencia normativa 2026: UIT S/ 5,500 (D.S. 301-2025-EF) · RMV S/ 1,130 · IGV 18%.
           </p>
         </div>
 
-        {/* Copyright */}
+        {/* Copyright — neutral-400 = 6.9:1 ✓ (era neutral-600 = 2.3:1 ✗) */}
         <div className="mt-6 flex flex-col items-start justify-between gap-3 border-t border-neutral-800 pt-6 sm:flex-row sm:items-center">
-          <p className="text-xs text-neutral-600">
+          <p className="text-xs text-neutral-400">
             © {anoActual} Formalia. Información de libre acceso.
           </p>
-          <p className="text-xs text-neutral-600">
-            Hecho en Perú 🇵🇪 · Tu aliado para crecer.
+          <p className="flex items-center gap-1.5 text-xs text-neutral-400">
+            Hecho en{" "}
+            <BanderaPeruSVG />
+            {" "}Perú · Tu aliado para crecer.
           </p>
         </div>
       </div>
     </footer>
+  );
+}
+
+/** Bandera peruana inline — rojo | blanco | rojo (franjas verticales). */
+function BanderaPeruSVG() {
+  return (
+    <svg
+      width="18"
+      height="12"
+      viewBox="0 0 18 12"
+      aria-label="Bandera del Perú"
+      role="img"
+      className="inline-block flex-shrink-0"
+    >
+      <rect x="0"  y="0" width="6"  height="12" fill="#D91023" />
+      <rect x="6"  y="0" width="6"  height="12" fill="#FFFFFF" />
+      <rect x="12" y="0" width="6"  height="12" fill="#D91023" />
+    </svg>
   );
 }
 
