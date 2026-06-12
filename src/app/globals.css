@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-marca: theme(colors.marca.700);
+    --color-fondo: theme(colors.neutral.50);
+    --color-superficie: theme(colors.white);
+    --color-texto: theme(colors.neutral.900);
+    --color-texto-secundario: theme(colors.neutral.600);
+    --color-borde: theme(colors.neutral.200);
+  }
+
+  html {
+    /* Scroll suave para anclas */
+    scroll-behavior: smooth;
+    /* Evita texto demasiado ancho en móvil */
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-neutral-50 text-neutral-900 font-sans antialiased leading-relaxed;
+  }
+
+  /* Foco visible accesible — reemplaza el outline por defecto del navegador */
+  :focus-visible {
+    @apply outline-none ring-2 ring-marca-600 ring-offset-2;
+  }
+
+  /* Links base */
+  a {
+    @apply text-marca-700 underline underline-offset-2 hover:text-marca-800;
+  }
+
+  /* Headings con escala legible */
+  h1 { @apply text-3xl font-bold text-neutral-900 leading-tight; }
+  h2 { @apply text-2xl font-bold text-neutral-900 leading-snug; }
+  h3 { @apply text-xl font-semibold text-neutral-900; }
+  h4 { @apply text-lg font-semibold text-neutral-800; }
+
+  /* Párrafos */
+  p { @apply text-neutral-800 leading-relaxed; }
+
+  /* Listas legibles */
+  ul, ol { @apply space-y-1; }
+}
+
+@layer components {
+  /* Contenedor de ancho máximo centrado */
+  .contenedor {
+    @apply mx-auto w-full max-w-contenido px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Skip-to-content para accesibilidad */
+  .saltar-contenido {
+    @apply absolute -top-full left-0 z-[100] rounded-br-lg bg-marca-800 px-4 py-2 text-sm font-semibold text-white
+           focus:top-0 focus:outline-none focus:ring-2 focus:ring-white;
+  }
+}
