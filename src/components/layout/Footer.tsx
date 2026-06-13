@@ -15,10 +15,12 @@ const enlacesNav = [
 ];
 
 const enlacesOficiales = [
-  { href: "https://www.sunat.gob.pe", label: "SUNAT", desc: "Portal tributario oficial" },
-  { href: "https://www.sunarp.gob.pe", label: "SUNARP", desc: "Registro de personas jurídicas" },
-  { href: "https://www.gob.pe/mtpe", label: "MTPE", desc: "Ministerio de Trabajo" },
-  { href: "https://www.indecopi.gob.pe", label: "INDECOPI", desc: "Registro de marcas" },
+  { href: "https://www.sunat.gob.pe",   label: "SUNAT",    desc: "Portal tributario oficial" },
+  { href: "https://www.gob.pe/mef",     label: "MEF",      desc: "Normativa contable y UIT" },
+  { href: "https://www.sunarp.gob.pe",  label: "SUNARP",   desc: "Registro de personas jurídicas" },
+  { href: "https://www.gob.pe/mtpe",    label: "MTPE",     desc: "Ministerio de Trabajo" },
+  { href: "https://www.essalud.gob.pe", label: "EsSalud",  desc: "Salud de trabajadores" },
+  { href: "https://indecopi.gob.pe",    label: "INDECOPI", desc: "Registro de marcas" },
 ];
 
 export function Footer() {
