@@ -59,7 +59,7 @@ export function Header() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "rounded-md px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1 focus-visible:ring-offset-marca-800",
+                      "rounded-md px-3 py-2 text-sm font-medium no-underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1 focus-visible:ring-offset-marca-800",
                       esActiva(item.href)
                         ? "bg-white/15 text-white"
                         : "text-white/75 hover:bg-white/10 hover:text-white",
