@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect, useRef } from "react";
+import { track } from "@vercel/analytics";
 import {
   PREGUNTAS,
   calcularResultado,
@@ -42,9 +43,41 @@ export function WizardRegimen() {
   const retroceder = () => setPaso((p) => Math.max(0, p - 1));
 
   const reiniciar = () => {
+    track("wizard_reinicio");
     setRespuestas({});
     setPaso(0);
   };
+
+  // ── Analítica de funnel ────────────────────────────────────────────────────
+  // Inicio del wizard (una sola vez al montar)
+  useEffect(() => { track("wizard_inicio"); }, []);
+
+  // Avance por pasos: registra qué pregunta se acaba de responder.
+  // Solo trackea avances (no retrocesos) para calcular abandonos correctamente.
+  const pasoAnterior = useRef(-1);
+  useEffect(() => {
+    if (paso > 0 && paso > pasoAnterior.current) {
+      const pregunta = PREGUNTAS[paso - 1];
+      if (pregunta) {
+        track("wizard_paso", {
+          paso,                          // 1–4
+          total: PREGUNTAS.length,       // siempre 4
+          pregunta: pregunta.id,         // id de la pregunta respondida
+        });
+      }
+    }
+    pasoAnterior.current = paso;
+  }, [paso]);
+
+  // Resultado alcanzado
+  useEffect(() => {
+    if (resultado) {
+      track("wizard_resultado", {
+        regimen: resultado.regimenRecomendado,
+        alternativo: resultado.regimenAlternativo ?? "ninguno",
+      });
+    }
+  }, [resultado]);
 
   return (
     <div className="contenedor py-8 sm:py-12">
@@ -254,6 +287,7 @@ function Resultado({ resultado, onReiniciar }: ResultadoProps) {
     try {
       const { generarPDFResultado } = await import("@/lib/pdf-resultado");
       await generarPDFResultado(resultado);
+      track("wizard_pdf", { regimen: regimenRecomendado });
     } catch (err) {
       console.error("Error al generar PDF:", err);
     } finally {
@@ -262,6 +296,7 @@ function Resultado({ resultado, onReiniciar }: ResultadoProps) {
   };
 
   const handleCompartirWA = () => {
+    track("wizard_whatsapp", { regimen: regimenRecomendado });
     const nombre = nombreRegimen(regimenRecomendado);
     const razonesTexto = razones
       .slice(0, 2)

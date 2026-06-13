@@ -120,8 +120,26 @@ export default function PagePrivacidad() {
               >
                 política de privacidad
               </a>
-              . Ningún otro tercero accede a tus datos.
+              .
             </p>
+            <p className="mt-2">
+              Para medir el uso del sitio (páginas visitadas, uso del asistente de
+              régimen) utilizamos{" "}
+              <strong>Vercel Analytics</strong> (Vercel Inc., EE.UU.). Esta herramienta
+              no usa cookies ni rastrea usuarios individuales; solo procesa datos
+              agregados y anónimos (URL visitada, país, tipo de dispositivo, navegador).
+              Consulta su{" "}
+              <a
+                href="https://vercel.com/legal/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:opacity-75"
+              >
+                política de privacidad
+              </a>
+              .
+            </p>
+            <p className="mt-2">Ningún otro tercero accede a tus datos personales.</p>
           </SeccionPrivacidad>
 
           <SeccionPrivacidad id="derechos" titulo="7. Tus derechos (ARCO)">
@@ -168,9 +186,26 @@ export default function PagePrivacidad() {
 
           <SeccionPrivacidad id="cookies" titulo="10. Cookies y analítica">
             <p>
-              Formalia no instala cookies de seguimiento propias ni usa herramientas
-              de analítica que recopilen datos personales identificables.
+              Formalia <strong>no instala cookies propias</strong> de seguimiento ni
+              usa publicidad comportamental.
             </p>
+            <p className="mt-2">
+              Usamos <strong>Vercel Analytics</strong> para entender cómo se usa el
+              sitio (por ejemplo, qué páginas se visitan más o en qué paso del asistente
+              de régimen tributario abandonan los usuarios). Esta herramienta:
+            </p>
+            <ul className="mt-3 space-y-2">
+              <ItemLista>No usa cookies.</ItemLista>
+              <ItemLista>No recopila datos personales identificables.</ItemLista>
+              <ItemLista>
+                Registra únicamente datos agregados y anónimos: URL de la página,
+                país de origen, tipo de dispositivo y navegador.
+              </ItemLista>
+              <ItemLista>
+                Los eventos personalizados (p. ej. «wizard completado») no contienen
+                nombre, correo ni ningún otro dato tuyo.
+              </ItemLista>
+            </ul>
           </SeccionPrivacidad>
 
           <SeccionPrivacidad id="cambios" titulo="11. Cambios a esta política">
