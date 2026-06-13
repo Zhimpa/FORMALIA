@@ -9,14 +9,14 @@ const fmtS = (n: number) =>
 
 const REGIMENES: { id: RegimenLaboral; label: string; descripcion: string }[] = [
   { id: "general", label: "Régimen General", descripcion: "MYPE Tributario o General — sin límite de trabajadores" },
-  { id: "pequeña", label: "Pequeña Empresa", descripcion: "Hasta 100 trabajadores, ventas hasta 1,700 UIT/año" },
-  { id: "micro", label: "Microempresa", descripcion: "Hasta 10 trabajadores, ventas hasta 150 UIT/año" },
+  { id: "pequeña", label: "Pequeña Empresa", descripcion: "Ventas hasta 1,700 UIT/año (S/ 9,350,000)" },
+  { id: "micro", label: "Microempresa", descripcion: "Ventas hasta 150 UIT/año (S/ 825,000)" },
 ];
 
 const FILAS_DESGLOSE: { key: keyof ReturnType<typeof calcularCostoLaboral>; label: string; nota: string }[] = [
   { key: "essaludMensual", label: "ESSALUD (empleador)", nota: "9% del sueldo bruto" },
   { key: "ctsMensual", label: "CTS (provisión mensual)", nota: "Compensación por tiempo de servicio" },
-  { key: "gratificacionesMensual", label: "Gratificaciones (provisión)", nota: "Julio y diciembre" },
+  { key: "gratificacionesMensual", label: "Gratificaciones (provisión)", nota: "Julio y diciembre · incluye bonificación extraordinaria 9% (Ley 30334)" },
   { key: "vacacionesMensual", label: "Vacaciones (provisión)", nota: "15 o 30 días según régimen" },
 ];
 

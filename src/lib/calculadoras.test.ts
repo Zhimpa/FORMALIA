@@ -100,10 +100,11 @@ describe("calcularCostoLaboral", () => {
 
     it("ESSALUD = 9% = 90", () => expect(r.essaludMensual).toBe(90));
     it("CTS = 1 sueldo/año ÷ 12 = 83.33", () => expect(r.ctsMensual).toBe(83.33));
-    it("gratificaciones = 2 sueldos/año ÷ 12 = 166.67", () => expect(r.gratificacionesMensual).toBe(166.67));
+    // 2 gratificaciones × (1000 + 9% bonif. extraordinaria Ley 30334) = 2000 × 1.09 = 2180 / 12 = 181.67
+    it("gratificaciones = 2 sueldos × 1.09 / 12 = 181.67 (Ley 30334)", () => expect(r.gratificacionesMensual).toBe(181.67));
     it("vacaciones = 1 sueldo/año ÷ 12 = 83.33", () => expect(r.vacacionesMensual).toBe(83.33));
-    it("costo mensual promedio = 1423.33", () => expect(r.costoMensualPromedio).toBe(1423.33));
-    it("multiplicador ≈ 1.42", () => expect(r.multiplicador).toBe(1.42));
+    it("costo mensual promedio = 1438.33", () => expect(r.costoMensualPromedio).toBe(1438.33));
+    it("multiplicador ≈ 1.44", () => expect(r.multiplicador).toBe(1.44));
     it("costo anual = 12 × mensual", () => expect(r.costoAnual).toBe(r.costoMensualPromedio * 12));
   });
 
@@ -112,9 +113,10 @@ describe("calcularCostoLaboral", () => {
 
     it("ESSALUD = 9% = 90", () => expect(r.essaludMensual).toBe(90));
     it("CTS = ½ sueldo/año ÷ 12 = 41.67", () => expect(r.ctsMensual).toBe(41.67));
-    it("gratificaciones = 1 sueldo/año ÷ 12 = 83.33", () => expect(r.gratificacionesMensual).toBe(83.33));
+    // 1 sueldo/año × 1.09 bonif. extraordinaria / 12 = 90.83
+    it("gratificaciones = 1 sueldo × 1.09 / 12 = 90.83 (Ley 30334)", () => expect(r.gratificacionesMensual).toBe(90.83));
     it("vacaciones = ½ sueldo/año ÷ 12 = 41.67", () => expect(r.vacacionesMensual).toBe(41.67));
-    it("costo mensual promedio = 1256.67", () => expect(r.costoMensualPromedio).toBe(1256.67));
+    it("costo mensual promedio = 1264.17", () => expect(r.costoMensualPromedio).toBe(1264.17));
     it("multiplicador ≈ 1.26", () => expect(r.multiplicador).toBe(1.26));
   });
 

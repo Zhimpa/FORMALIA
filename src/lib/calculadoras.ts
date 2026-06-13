@@ -5,6 +5,11 @@ import {
   COSTOS_LABORALES_RG,
 } from "@/config/parametros-peru";
 
+// Factor de bonificación extraordinaria sobre gratificaciones (Ley 30334).
+// Aplica a todo trabajador que recibe gratificación: RG (2 sueldos/año) y
+// Pequeña Empresa (½ sueldo × 2 = 1 sueldo/año). No aplica a Microempresa.
+const FACTOR_GRAT = 1 + COSTOS_LABORALES_RG.bonificacionExtraordinariaGratificacion.valor / 100;
+
 const r2 = (n: number): number => Math.round(n * 100) / 100;
 
 // ---------------------------------------------------------------------------
@@ -78,13 +83,15 @@ export function calcularCostoLaboral(
     case "general":
       essaludMensual = sueldo * tasaEssalud;
       ctsAnual = sueldo;
-      gratificacionesAnual = sueldo * 2;
+      // 2 gratificaciones × (1 sueldo + 9% bonificación extraordinaria Ley 30334)
+      gratificacionesAnual = sueldo * 2 * FACTOR_GRAT;
       vacacionesAnual = sueldo;
       break;
     case "pequeña":
       essaludMensual = sueldo * tasaEssalud;
       ctsAnual = sueldo * 0.5;
-      gratificacionesAnual = sueldo;
+      // 2 × ½ sueldo × (1 + 9% bonificación extraordinaria Ley 30334) = sueldo × 1.09
+      gratificacionesAnual = sueldo * FACTOR_GRAT;
       vacacionesAnual = sueldo * 0.5;
       break;
     case "micro":

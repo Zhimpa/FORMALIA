@@ -583,19 +583,25 @@ export const COSTOS_LABORALES_RG = {
     fuente: "D.S. 001-97-TR (equivale a 1 sueldo/año)",
   } satisfies Parametro,
   gratificacionesAnuales: {
-    valor: "2 sueldos/año + bonificación extraordinaria 9%",
+    valor: "2 sueldos/año + bonificación extraordinaria 9% (Ley 30334)",
     vigencia: "2026",
-    fuente: "Ley 27735 + Ley 29351",
+    fuente: "Ley 27735 + Ley 30334",
   } satisfies Parametro<string>,
+  /** 9 % sobre cada gratificación pagado al trabajador en lugar de EsSalud — Ley 30334 (vigente desde 2015). */
+  bonificacionExtraordinariaGratificacion: {
+    valor: 9,
+    vigencia: "2026",
+    fuente: "Ley 30334 (permanente desde jul-2015)",
+  } satisfies Parametro,
   vacacionesAnuales: {
     valor: "1 sueldo/año",
     vigencia: "2026",
     fuente: "D.Leg. 713",
   } satisfies Parametro<string>,
   multiplicadorAproximado: {
-    valor: 1.4,
+    valor: 1.44,
     vigencia: "2026",
-    fuente: "Estimación — el trabajador cuesta ~1.4× su sueldo bruto",
+    fuente: "Estimación incluye bonificación extraordinaria Ley 30334 — el trabajador cuesta ~1.44× su sueldo bruto",
   } satisfies Parametro,
 };
 

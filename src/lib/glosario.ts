@@ -408,7 +408,7 @@ const _TERMINOS_RAW: GlosarioTermino[] = [
     definicion:
       "Registro Nacional de la Micro y Pequeña Empresa. Inscripción en el MTPE que habilita el régimen laboral especial MYPE con menores beneficios sociales.",
     ejemplo:
-      "Microempresa inscrita en REMYPE no paga gratificaciones ni CTS a sus trabajadores (solo SIS y 15 días de vacaciones). Un trabajador a S/ 1,130 cuesta ~S/ 1,177/mes vs S/ 1,602 en régimen general.",
+      "Microempresa inscrita en REMYPE no paga gratificaciones ni CTS a sus trabajadores (solo SIS y 15 días de vacaciones). Un trabajador a S/ 1,130 cuesta ~S/ 1,177/mes vs S/ 1,625 en régimen general.",
   },
   // ---------------------------------------------------------------------------
   // Sistemas SUNAT
