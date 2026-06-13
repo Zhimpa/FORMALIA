@@ -24,12 +24,18 @@ interface Props {
   /** "claro" = para fondos blancos/grises; "oscuro" = para el footer */
   tema?: "claro" | "oscuro";
   className?: string;
+  /** Texto alternativo para el encabezado del formulario */
+  textoPersonalizado?: string;
+  /** Identifica el origen de la suscripción en Formspree (footer, calendario, wizard) */
+  fuente?: string;
 }
 
 export function FormularioSuscripcion({
   conSubtitulo = true,
   tema = "claro",
   className,
+  textoPersonalizado,
+  fuente = "web",
 }: Props) {
   const [email, setEmail] = useState("");
   const [digito, setDigito] = useState("");
@@ -56,8 +62,9 @@ export function FormularioSuscripcion({
         body: JSON.stringify({
           email,
           digito_ruc: digito || "no indicado",
+          fuente,
           consentimiento: "acepto",
-          _subject: "Nueva suscripción FORMALIA",
+          _subject: `Nueva suscripción FORMALIA (${fuente})`,
         }),
       });
       setEstado(res.ok ? "exito" : "error");
@@ -94,10 +101,10 @@ export function FormularioSuscripcion({
             oscuro ? "text-white" : "text-neutral-900",
           )}
         >
-          Recibe recordatorios de tus vencimientos SUNAT y novedades tributarias, gratis
+          {textoPersonalizado ?? "Recibe recordatorios de tus vencimientos SUNAT y novedades tributarias, gratis"}
         </h3>
         {conSubtitulo && (
-          <p className={cn("mt-1 text-sm", oscuro ? "text-neutral-400" : "text-neutral-600")}>
+          <p className={cn("mt-1 text-sm", oscuro ? "text-neutral-300" : "text-neutral-600")}>
             Sin spam. Solo lo que importa para tu negocio.
           </p>
         )}
@@ -164,7 +171,7 @@ export function FormularioSuscripcion({
         />
         <label
           htmlFor="suscripcion-consentimiento"
-          className={cn("cursor-pointer text-xs leading-relaxed", oscuro ? "text-neutral-400" : "text-neutral-600")}
+          className={cn("cursor-pointer text-xs leading-relaxed", oscuro ? "text-neutral-300" : "text-neutral-600")}
         >
           Acepto recibir correos con recordatorios de vencimientos SUNAT y novedades tributarias.
           Solo usaremos tu correo para esto; puedes darte de baja cuando quieras.{" "}

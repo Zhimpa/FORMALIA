@@ -33,7 +33,7 @@ export function Footer() {
         {/* Franja de suscripción */}
         <div className="mb-10 rounded-xl border border-neutral-700 bg-neutral-800/60 p-6 sm:p-8 lg:flex lg:items-start lg:gap-12">
           <div className="flex-1">
-            <FormularioSuscripcion conSubtitulo={true} tema="oscuro" />
+            <FormularioSuscripcion conSubtitulo={true} tema="oscuro" fuente="footer" />
           </div>
         </div>
 

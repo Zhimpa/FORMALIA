@@ -8,6 +8,7 @@ import {
   diasRestantes,
   type DigitoRUC,
 } from "@/config/cronograma-sunat";
+import { FormularioSuscripcion } from "@/components/FormularioSuscripcion";
 
 const DIGITOS: DigitoRUC[] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
@@ -257,6 +258,16 @@ export function CalendarioUI() {
             sunat.gob.pe/cronograma
           </a>
         </p>
+      </div>
+
+      {/* Suscripción */}
+      <div className="rounded-xl border border-marca-100 bg-marca-50 p-5 sm:p-6">
+        <FormularioSuscripcion
+          textoPersonalizado="Te avisamos por correo antes de cada vencimiento SUNAT — gratis"
+          conSubtitulo={true}
+          tema="claro"
+          fuente="calendario"
+        />
       </div>
     </div>
   );

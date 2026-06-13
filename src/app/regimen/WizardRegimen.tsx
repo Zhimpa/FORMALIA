@@ -347,7 +347,7 @@ function Resultado({ resultado, onReiniciar }: ResultadoProps) {
 
       {/* Suscripción */}
       <div className="rounded-xl border border-marca-100 bg-marca-50 p-5 sm:p-6">
-        <FormularioSuscripcion conSubtitulo={false} tema="claro" />
+        <FormularioSuscripcion conSubtitulo={false} tema="claro" fuente="wizard" />
       </div>
 
       {/* Disclaimer y verificación */}
