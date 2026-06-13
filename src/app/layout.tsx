@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SITE_URL } from "@/config/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://formalia.pe"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Formalia — Tu aliado para crecer · Contabilidad y formalización para emprendedores peruanos",
     template: "%s · Formalia",

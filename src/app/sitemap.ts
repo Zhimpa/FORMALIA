@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { getSlugs } from "@/lib/aprende";
+import { SITE_URL } from "@/config/site";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://formalia.pe";
+const BASE_URL = SITE_URL;
 
 const RUTAS_ESTATICAS = [
   { path: "/",             priority: 1.0, changeFrequency: "weekly"  },
