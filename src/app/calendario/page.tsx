@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CalendarioUI } from "./CalendarioUI";
 import { UltimaVerificacion } from "@/components/UltimaVerificacion";
+import { FormularioSuscripcion } from "@/components/FormularioSuscripcion";
 import { CRONOGRAMA_2026 } from "@/config/cronograma-sunat";
 
 export const metadata: Metadata = {
@@ -29,8 +30,13 @@ export default function PageCalendario() {
       </div>
 
       <div className="mx-auto max-w-contenido px-4 py-8">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl space-y-10">
           <CalendarioUI />
+
+          {/* Suscripción */}
+          <div className="rounded-xl border border-marca-100 bg-marca-50 p-5 sm:p-6">
+            <FormularioSuscripcion conSubtitulo={true} tema="claro" />
+          </div>
         </div>
       </div>
     </div>

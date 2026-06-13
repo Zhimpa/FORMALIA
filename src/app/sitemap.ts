@@ -12,6 +12,7 @@ const RUTAS_ESTATICAS = [
   { path: "/aprende",      priority: 0.8, changeFrequency: "monthly" },
   { path: "/glosario",     priority: 0.75,changeFrequency: "monthly" },
   { path: "/calendario",   priority: 0.8, changeFrequency: "monthly" },
+  { path: "/privacidad",   priority: 0.4, changeFrequency: "yearly"  },
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -14,6 +14,7 @@ import { Alert } from "@/components/ui/Alert";
 import { Button } from "@/components/ui/Button";
 import { Card, CardBody } from "@/components/ui/Card";
 import { UltimaVerificacion } from "@/components/UltimaVerificacion";
+import { FormularioSuscripcion } from "@/components/FormularioSuscripcion";
 import { cn } from "@/lib/utils";
 
 // ---------------------------------------------------------------------------
@@ -341,6 +342,11 @@ function Resultado({ resultado, onReiniciar }: ResultadoProps) {
           </CardBody>
         </Card>
       )}
+
+      {/* Suscripción */}
+      <div className="rounded-xl border border-marca-100 bg-marca-50 p-5 sm:p-6">
+        <FormularioSuscripcion conSubtitulo={false} tema="claro" />
+      </div>
 
       {/* Disclaimer y verificación */}
       <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-xs leading-relaxed text-neutral-500">

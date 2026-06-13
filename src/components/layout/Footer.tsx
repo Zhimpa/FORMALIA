@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FormularioSuscripcion } from "@/components/FormularioSuscripcion";
 
 const enlacesNav = [
   { href: "/", label: "Inicio" },
@@ -8,6 +9,7 @@ const enlacesNav = [
   { href: "/aprende", label: "Aprende" },
   { href: "/glosario", label: "Glosario" },
   { href: "/calendario", label: "Calendario SUNAT" },
+  { href: "/privacidad", label: "Privacidad" },
 ];
 
 const enlacesOficiales = [
@@ -23,6 +25,14 @@ export function Footer() {
   return (
     <footer className="border-t border-neutral-200 bg-neutral-900 text-neutral-300">
       <div className="contenedor py-10 lg:py-14">
+
+        {/* Franja de suscripción */}
+        <div className="mb-10 rounded-xl border border-neutral-700 bg-neutral-800/60 p-6 sm:p-8 lg:flex lg:items-start lg:gap-12">
+          <div className="flex-1">
+            <FormularioSuscripcion conSubtitulo={true} tema="oscuro" />
+          </div>
+        </div>
+
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
 
           {/* Marca y descripción */}
