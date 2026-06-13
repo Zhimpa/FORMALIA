@@ -12,6 +12,8 @@ const navItems = [
   { href: "/calculadoras", label: "Calculadoras", labelCorto: "Calculadoras" },
   { href: "/aprende", label: "Aprende", labelCorto: "Aprende" },
   { href: "/glosario", label: "Glosario", labelCorto: "Glosario" },
+  { href: "/preguntas-frecuentes", label: "Preguntas frecuentes", labelCorto: "FAQ" },
+  { href: "/acerca", label: "Acerca de Formalia", labelCorto: "Acerca" },
 ] as const;
 
 export function Header() {

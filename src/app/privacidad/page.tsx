@@ -4,13 +4,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Política de privacidad",
   description:
-    "Política de privacidad de Formalia. Qué datos recopilamos, para qué los usamos y cómo ejercer tus derechos conforme a la Ley 29733 (Ley de Protección de Datos Personales del Perú).",
+    "Política de privacidad de Formalia conforme a la Ley N° 29733 (Ley de Protección de Datos Personales del Perú). Qué datos recopilamos, para qué y cómo ejercer tus derechos.",
   robots: { index: true, follow: true },
 };
 
 export default function PagePrivacidad() {
-  const fechaActualizacion = "13 de junio de 2026";
-
   return (
     <div className="min-h-screen bg-white">
       <div className="border-b border-neutral-200 bg-neutral-50">
@@ -20,242 +18,189 @@ export default function PagePrivacidad() {
             Política de privacidad
           </h1>
           <p className="mt-2 text-sm text-neutral-500">
-            Última actualización: {fechaActualizacion}
+            Última actualización: 13 de junio de 2026
           </p>
         </div>
       </div>
 
       <div className="mx-auto max-w-contenido px-4 py-10">
-        <div className="prose prose-neutral max-w-2xl">
+        <div className="max-w-2xl space-y-10">
 
-          {/* Aviso de conformidad legal */}
-          <div className="not-prose mb-8 rounded-xl border border-info-200 bg-info-50 px-5 py-4 text-sm leading-relaxed text-info-800">
+          {/* Conformidad legal */}
+          <div className="rounded-xl border border-info-200 bg-info-50 px-5 py-4 text-sm leading-relaxed text-info-800">
             <p className="font-semibold">Conformidad legal</p>
             <p className="mt-1">
               Esta política se rige por la{" "}
               <strong>Ley N° 29733 — Ley de Protección de Datos Personales</strong>{" "}
-              y su Reglamento aprobado por D.S. N° 003-2013-JUS. La Autoridad
-              Nacional de Protección de Datos Personales en Perú es la{" "}
+              y su Reglamento (D.S. N° 003-2013-JUS). La autoridad competente en Perú
+              es la{" "}
               <a
                 href="https://www.minjus.gob.pe/privacidad"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:opacity-80"
+                className="underline hover:text-info-900"
               >
-                Autoridad Nacional de Transparencia y Acceso a la Información Pública
-                (ANTAIP)
+                ANTAIP — Ministerio de Justicia y Derechos Humanos
               </a>
-              , perteneciente al Ministerio de Justicia y Derechos Humanos.
+              .
             </p>
           </div>
 
-          <Section id="responsable" titulo="1. Responsable del tratamiento">
+          <SeccionPrivacidad id="responsable" titulo="1. Responsable del tratamiento">
             <p>
-              El responsable del banco de datos personales es{" "}
-              <strong>FORMALIA</strong> (en adelante, «Formalia» o «nosotros»),
-              operado como herramienta educativa gratuita dirigida a emprendedores
-              peruanos. Puedes contactarnos en:{" "}
-              <a href="mailto:privacidad@formalia.vercel.app">
+              El responsable es <strong>FORMALIA</strong>, herramienta educativa gratuita
+              para emprendedores peruanos. Contacto:{" "}
+              <a href="mailto:privacidad@formalia.vercel.app" className="underline hover:opacity-75">
                 privacidad@formalia.vercel.app
               </a>
               .
             </p>
-          </Section>
+          </SeccionPrivacidad>
 
-          <Section id="datos" titulo="2. Datos personales que recopilamos">
+          <SeccionPrivacidad id="datos" titulo="2. Datos personales que recopilamos">
             <p>
-              A través del formulario de suscripción recopilamos únicamente los
-              siguientes datos:
+              Solo recopilamos, a través del formulario de suscripción:
             </p>
-            <ul>
-              <li>
-                <strong>Dirección de correo electrónico</strong> — dato
-                obligatorio para enviar los avisos.
-              </li>
-              <li>
-                <strong>Último dígito del RUC</strong> — dato opcional, utilizado
-                exclusivamente para personalizar las fechas de vencimiento según el
-                cronograma SUNAT que corresponde a cada contribuyente.
-              </li>
+            <ul className="mt-3 space-y-2">
+              <ItemLista>
+                <strong>Correo electrónico</strong> — obligatorio para enviar los avisos.
+              </ItemLista>
+              <ItemLista>
+                <strong>Último dígito del RUC</strong> — opcional; solo para personalizar
+                las fechas de vencimiento SUNAT según tu RUC.
+              </ItemLista>
             </ul>
-            <p>
-              No recopilamos nombre, apellidos, número de RUC completo, número de
-              teléfono ni ningún otro dato adicional a los señalados.
+            <p className="mt-3">
+              No recopilamos nombre, RUC completo, teléfono ni ningún otro dato.
             </p>
-          </Section>
+          </SeccionPrivacidad>
 
-          <Section id="finalidad" titulo="3. Finalidad del tratamiento">
-            <p>Tus datos serán utilizados exclusivamente para:</p>
-            <ol>
-              <li>
-                Enviar recordatorios de fechas de vencimiento de declaraciones
-                SUNAT (PDT 621, PLAME) según el cronograma vigente.
-              </li>
-              <li>
-                Comunicar novedades tributarias relevantes para emprendedores y
-                MYPE peruanos (cambios en la UIT, RMV, IGV, regímenes tributarios,
-                entre otros).
-              </li>
+          <SeccionPrivacidad id="finalidad" titulo="3. Finalidad del tratamiento">
+            <p>Tus datos se usarán exclusivamente para:</p>
+            <ol className="mt-3 space-y-2 list-none">
+              <ItemLista numero="1">
+                Enviar recordatorios de vencimientos SUNAT (PDT 621, PLAME).
+              </ItemLista>
+              <ItemLista numero="2">
+                Comunicar novedades tributarias relevantes (cambios en UIT, RMV, IGV,
+                regímenes).
+              </ItemLista>
             </ol>
-            <p>
-              No cederemos ni venderemos tus datos a terceros para fines
-              comerciales, publicitarios ni de ninguna otra naturaleza.
+            <p className="mt-3">
+              No cedemos ni vendemos tus datos a terceros para fines comerciales.
             </p>
-          </Section>
+          </SeccionPrivacidad>
 
-          <Section id="base-legal" titulo="4. Base legal del tratamiento">
+          <SeccionPrivacidad id="base-legal" titulo="4. Base legal del tratamiento">
             <p>
-              El tratamiento se realiza sobre la base del{" "}
-              <strong>consentimiento libre, previo, expreso e informado</strong>{" "}
-              del titular, conforme al artículo 13° de la Ley N° 29733. Este
-              consentimiento es otorgado mediante la marca del casillero de
-              aceptación en el formulario de suscripción, que incluye un enlace a
-              la presente política antes de enviar los datos.
+              El tratamiento se basa en el{" "}
+              <strong>consentimiento libre, previo, expreso e informado</strong> del
+              titular (art. 13° Ley N° 29733), otorgado al marcar el casillero de
+              aceptación en el formulario de suscripción.
             </p>
-          </Section>
+          </SeccionPrivacidad>
 
-          <Section id="conservacion" titulo="5. Plazo de conservación">
+          <SeccionPrivacidad id="conservacion" titulo="5. Plazo de conservación">
             <p>
-              Conservaremos tu dirección de correo electrónico (y el dígito de RUC,
-              si lo proporcionaste) mientras mantengas la suscripción activa.
-              Cuando te des de baja, tus datos serán eliminados del servicio de
-              envío de correos dentro de los{" "}
-              <strong>30 días calendario</strong> siguientes a la solicitud.
+              Mantenemos tus datos mientras la suscripción esté activa. Al darte de baja,
+              los eliminamos dentro de los <strong>30 días calendario</strong> siguientes.
             </p>
-          </Section>
+          </SeccionPrivacidad>
 
-          <Section id="destinatarios" titulo="6. Destinatarios de los datos">
+          <SeccionPrivacidad id="destinatarios" titulo="6. Destinatarios de los datos">
             <p>
-              Para el envío de correos electrónicos utilizamos el servicio de{" "}
-              <strong>Formspree</strong> (formspree.io), proveedor externo ubicado
-              en Estados Unidos. Al suscribirte, aceptas que tus datos sean
-              procesados por dicho servicio en los términos de su{" "}
+              Para el envío de correos usamos{" "}
+              <strong>Formspree</strong> (formspree.io), proveedor externo (EE.UU.) que
+              actúa como encargado del tratamiento. Al suscribirte aceptas su{" "}
               <a
                 href="https://formspree.io/legal/privacy-policy"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="underline hover:opacity-75"
               >
                 política de privacidad
               </a>
-              . Formspree actúa como encargado del tratamiento y no tiene
-              autorización para utilizar tus datos para sus propios fines.
+              . Ningún otro tercero accede a tus datos.
             </p>
-            <p>
-              Ningún otro tercero tiene acceso a tus datos personales.
-            </p>
-          </Section>
+          </SeccionPrivacidad>
 
-          <Section id="derechos" titulo="7. Tus derechos (ARCO)">
-            <p>
-              Conforme al artículo 19° de la Ley N° 29733, tienes los siguientes
-              derechos sobre tus datos personales:
-            </p>
-            <dl className="not-prose mt-4 space-y-3 text-sm">
-              <DerechoBadge
-                letra="A"
-                titulo="Acceso"
-                descripcion="Conocer qué datos tuyos tratamos, con qué finalidad y de dónde provienen."
-              />
-              <DerechoBadge
-                letra="R"
-                titulo="Rectificación"
-                descripcion="Solicitar la corrección de datos inexactos o incompletos."
-              />
-              <DerechoBadge
-                letra="C"
-                titulo="Cancelación"
-                descripcion="Solicitar la eliminación de tus datos cuando ya no sean necesarios para la finalidad para la que fueron recabados."
-              />
-              <DerechoBadge
-                letra="O"
-                titulo="Oposición"
-                descripcion="Oponerte al tratamiento de tus datos en situaciones específicas previstas por la ley."
-              />
-            </dl>
-          </Section>
+          <SeccionPrivacidad id="derechos" titulo="7. Tus derechos (ARCO)">
+            <p>Conforme al art. 19° de la Ley N° 29733 tienes derecho a:</p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {[
+                { letra: "A", titulo: "Acceso", desc: "Conocer qué datos tuyos tratamos y con qué finalidad." },
+                { letra: "R", titulo: "Rectificación", desc: "Corregir datos inexactos o incompletos." },
+                { letra: "C", titulo: "Cancelación", desc: "Solicitar la eliminación de tus datos." },
+                { letra: "O", titulo: "Oposición", desc: "Oponerte al tratamiento en situaciones previstas por ley." },
+              ].map(({ letra, titulo, desc }) => (
+                <div key={letra} className="flex items-start gap-3 rounded-lg border border-neutral-200 p-3">
+                  <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-marca-100 text-sm font-bold text-marca-800">
+                    {letra}
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-neutral-800">{titulo}</p>
+                    <p className="mt-0.5 text-xs text-neutral-600">{desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </SeccionPrivacidad>
 
-          <Section id="ejercer-derechos" titulo="8. Cómo ejercer tus derechos">
+          <SeccionPrivacidad id="ejercer-derechos" titulo="8. Cómo ejercer tus derechos">
             <p>
-              Para ejercer cualquiera de los derechos descritos, o para darte de
-              baja de las comunicaciones, envía un correo a:{" "}
-              <a href="mailto:privacidad@formalia.vercel.app">
+              Escribe a{" "}
+              <a href="mailto:privacidad@formalia.vercel.app" className="underline hover:opacity-75">
                 privacidad@formalia.vercel.app
               </a>{" "}
-              indicando:
+              indicando tu correo registrado, el derecho que deseas ejercer y una breve
+              descripción. Atenderemos tu solicitud en <strong>20 días hábiles</strong>{" "}
+              (art. 22° Ley N° 29733). También puedes darte de baja directamente desde
+              el enlace al pie de cualquier correo que te enviemos.
             </p>
-            <ul>
-              <li>Tu nombre y dirección de correo electrónico registrado.</li>
-              <li>El derecho que deseas ejercer (Acceso, Rectificación, Cancelación u Oposición).</li>
-              <li>Una breve descripción de tu solicitud.</li>
-            </ul>
-            <p>
-              Atenderemos tu solicitud en un plazo máximo de{" "}
-              <strong>20 días hábiles</strong> contados desde la recepción del
-              correo, conforme al artículo 22° de la Ley N° 29733. También puedes
-              darte de baja directamente desde cualquier correo que te enviemos,
-              mediante el enlace «Darme de baja» incluido al pie de cada mensaje.
-            </p>
-          </Section>
+          </SeccionPrivacidad>
 
-          <Section id="seguridad" titulo="9. Medidas de seguridad">
+          <SeccionPrivacidad id="seguridad" titulo="9. Seguridad">
             <p>
-              Aplicamos medidas técnicas y organizativas razonables para proteger
-              tus datos frente a accesos no autorizados, pérdida o alteración,
-              incluyendo transmisión por HTTPS y acceso restringido a los datos
-              almacenados por Formspree.
+              Aplicamos medidas técnicas razonables: transmisión por HTTPS y acceso
+              restringido a los datos almacenados por Formspree.
             </p>
-          </Section>
+          </SeccionPrivacidad>
 
-          <Section id="cookies" titulo="10. Cookies y datos de navegación">
+          <SeccionPrivacidad id="cookies" titulo="10. Cookies y analítica">
             <p>
-              Formalia no instala cookies de seguimiento propias ni utiliza
-              herramientas de analítica web que recopilen datos personales
-              identificables. Si en el futuro incorporamos analítica, actualizaremos
-              esta política antes de hacerlo.
+              Formalia no instala cookies de seguimiento propias ni usa herramientas
+              de analítica que recopilen datos personales identificables.
             </p>
-          </Section>
+          </SeccionPrivacidad>
 
-          <Section id="cambios" titulo="11. Cambios a esta política">
+          <SeccionPrivacidad id="cambios" titulo="11. Cambios a esta política">
             <p>
-              Podemos actualizar esta política para reflejar cambios en nuestras
-              prácticas o en la normativa aplicable. Te notificaremos por correo
-              electrónico si los cambios son significativos. La fecha de última
-              actualización siempre aparece al inicio de esta página.
+              Si realizamos cambios significativos, te notificaremos por correo
+              electrónico. La fecha de actualización aparece siempre al inicio de esta
+              página.
             </p>
-          </Section>
+          </SeccionPrivacidad>
 
-          <Section id="contacto" titulo="12. Contacto y autoridad de control">
+          <SeccionPrivacidad id="contacto" titulo="12. Contacto y autoridad de control">
             <p>
-              Para cualquier consulta sobre esta política, escríbenos a{" "}
-              <a href="mailto:privacidad@formalia.vercel.app">
+              Consultas:{" "}
+              <a href="mailto:privacidad@formalia.vercel.app" className="underline hover:opacity-75">
                 privacidad@formalia.vercel.app
               </a>
               .
             </p>
-            <p>
-              Si consideras que el tratamiento de tus datos vulnera la normativa
-              peruana de protección de datos, puedes presentar una queja ante la{" "}
-              <strong>
-                Autoridad Nacional de Transparencia y Acceso a la Información
-                Pública (ANTAIP)
-              </strong>
-              , dependiente del Ministerio de Justicia y Derechos Humanos (
-              <a
-                href="https://www.minjus.gob.pe"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            <p className="mt-2">
+              Si consideras vulnerados tus derechos, puedes presentar queja ante la{" "}
+              <strong>ANTAIP</strong> — Ministerio de Justicia y Derechos Humanos (
+              <a href="https://www.minjus.gob.pe" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-75">
                 minjus.gob.pe
               </a>
               ).
             </p>
-          </Section>
+          </SeccionPrivacidad>
 
-          <div className="not-prose mt-10 border-t border-neutral-200 pt-6">
-            <Link
-              href="/"
-              className="text-sm text-marca-600 underline hover:text-marca-800"
-            >
+          <div className="border-t border-neutral-200 pt-6">
+            <Link href="/" className="text-sm text-marca-600 underline hover:text-marca-800">
               ← Volver al inicio
             </Link>
           </div>
@@ -265,50 +210,24 @@ export default function PagePrivacidad() {
   );
 }
 
-// ---------------------------------------------------------------------------
-// Helpers de layout
-// ---------------------------------------------------------------------------
-
-function Section({
-  id,
-  titulo,
-  children,
-}: {
-  id: string;
-  titulo: string;
-  children: React.ReactNode;
-}) {
+function SeccionPrivacidad({ id, titulo, children }: { id: string; titulo: string; children: React.ReactNode }) {
   return (
-    <section id={id} className="mt-8 first:mt-0">
-      <h2 className="text-xl font-bold text-neutral-900">{titulo}</h2>
-      <div className="mt-3 space-y-3 text-sm leading-relaxed text-neutral-700">
+    <section id={id}>
+      <h2 className="text-lg font-bold text-neutral-900">{titulo}</h2>
+      <div className="mt-3 space-y-2 text-sm leading-relaxed text-neutral-700">
         {children}
       </div>
     </section>
   );
 }
 
-function DerechoBadge({
-  letra,
-  titulo,
-  descripcion,
-}: {
-  letra: string;
-  titulo: string;
-  descripcion: string;
-}) {
+function ItemLista({ numero, children }: { numero?: string; children: React.ReactNode }) {
   return (
-    <div className="flex items-start gap-3">
-      <span
-        className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-marca-100 text-xs font-bold text-marca-800"
-        aria-hidden="true"
-      >
-        {letra}
+    <li className="flex items-start gap-2.5 text-sm leading-relaxed text-neutral-700">
+      <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-neutral-100 text-xs font-semibold text-neutral-500">
+        {numero ?? "·"}
       </span>
-      <div>
-        <p className="font-semibold text-neutral-800">{titulo}</p>
-        <p className="text-neutral-600">{descripcion}</p>
-      </div>
-    </div>
+      <span>{children}</span>
+    </li>
   );
 }

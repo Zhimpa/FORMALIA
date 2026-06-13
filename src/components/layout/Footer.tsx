@@ -9,6 +9,8 @@ const enlacesNav = [
   { href: "/aprende", label: "Aprende" },
   { href: "/glosario", label: "Glosario" },
   { href: "/calendario", label: "Calendario SUNAT" },
+  { href: "/preguntas-frecuentes", label: "Preguntas frecuentes" },
+  { href: "/acerca", label: "Acerca de Formalia" },
   { href: "/privacidad", label: "Privacidad" },
 ];
 
