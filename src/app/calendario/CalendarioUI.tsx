@@ -81,7 +81,7 @@ function BadgeEstado({ fechaStr }: { fechaStr: string }) {
 export function CalendarioUI() {
   const [digito, setDigito] = useState<DigitoRUC | null>(null);
 
-  const { meses, nota, fuente, ultimaVerificacion } = CRONOGRAMA_2026;
+  const { meses, nota, baseLegal, ultimaVerificacion } = CRONOGRAMA_2026;
 
   return (
     <div className="space-y-6">
@@ -242,7 +242,7 @@ export function CalendarioUI() {
       <div className="rounded-lg border border-advertencia-200 bg-advertencia-50 px-4 py-3 text-xs text-advertencia-800">
         <p className="font-semibold mb-0.5">Verifica siempre el cronograma oficial</p>
         <p>
-          {nota} Fuente de referencia: {fuente}. Última verificación: {ultimaVerificacion}.{" "}
+          {nota} Base legal: {baseLegal}. Última verificación: {ultimaVerificacion}.{" "}
           <a
             href="https://www.sunat.gob.pe/cronograma"
             target="_blank"

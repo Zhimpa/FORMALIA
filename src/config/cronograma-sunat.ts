@@ -27,7 +27,9 @@ export interface VencimientoMes {
 
 export interface CronogramaAnual {
   anio: number;
-  /** Identificador de la Resolución de Superintendencia que aprueba el cronograma */
+  /** Resolución de Superintendencia que aprueba el cronograma plurianual. Única fuente de verdad para citas legales. */
+  baseLegal: string;
+  /** URL donde verificar el cronograma oficial */
   fuente: string;
   /** Fecha de última verificación manual del cronograma */
   ultimaVerificacion: string;
@@ -38,8 +40,9 @@ export interface CronogramaAnual {
 
 export const CRONOGRAMA_2026: CronogramaAnual = {
   anio: 2026,
-  fuente: "R.S. S/N — verificar en sunat.gob.pe/cronograma",
-  ultimaVerificacion: "2026-06-12",
+  baseLegal: "R.S. N° 281-2022/SUNAT",
+  fuente: "https://www.sunat.gob.pe/cronograma",
+  ultimaVerificacion: "2026-06-13",
   nota: "Fechas referenciales. Verificar el cronograma oficial publicado por SUNAT cada enero.",
   meses: [
     // -------------------------------------------------------------------------

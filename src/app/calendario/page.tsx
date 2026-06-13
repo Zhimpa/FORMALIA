@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CalendarioUI } from "./CalendarioUI";
 import { UltimaVerificacion } from "@/components/UltimaVerificacion";
+import { CRONOGRAMA_2026 } from "@/config/cronograma-sunat";
 
 export const metadata: Metadata = {
   title: "Calendario de vencimientos SUNAT 2026",
@@ -19,7 +20,10 @@ export default function PageCalendario() {
             declaración mensual.
           </p>
           <div className="mt-4">
-            <UltimaVerificacion fecha="enero 2026" fuente="SUNAT (R.S. 000227-2025/SUNAT)" />
+            <UltimaVerificacion
+              fecha={`enero ${CRONOGRAMA_2026.anio}`}
+              fuente={`SUNAT · ${CRONOGRAMA_2026.baseLegal}`}
+            />
           </div>
         </div>
       </div>
