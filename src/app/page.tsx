@@ -150,10 +150,11 @@ function SeccionHero() {
   return (
     <section aria-labelledby="hero-titulo" className="relative overflow-hidden bg-marca-900">
       {/* Decorative */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 select-none overflow-hidden">
+      {/* will-change-transform promueve este layer al compositor — el blur se calcula una vez y no repinta en scroll */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 select-none overflow-hidden will-change-transform">
         <div className="absolute -left-32 -top-32 h-[30rem] w-[30rem] rounded-full bg-marca-800/60" />
         <div className="absolute -bottom-20 right-0 h-64 w-64 rounded-full bg-marca-800/30" />
-        <div className="absolute right-[5%] top-[10%] h-72 w-72 rounded-full bg-acento-500/8 blur-3xl" />
+        <div className="absolute right-[5%] top-[10%] h-72 w-72 rounded-full bg-acento-500/15 blur-xl" />
       </div>
 
       <div className="contenedor relative py-14 sm:py-18 lg:py-24">
@@ -242,7 +243,7 @@ function MockHeroUI() {
   return (
     <div className="relative">
       {/* Main card — z-10 para que su contenido siempre gane a los badges decorativos */}
-      <div className="relative z-10 rounded-2xl border border-white/15 bg-marca-800/70 p-6 shadow-2xl ring-1 ring-inset ring-white/10 backdrop-blur">
+      <div className="relative z-10 rounded-2xl border border-white/15 bg-marca-800 p-6 shadow-2xl ring-1 ring-inset ring-white/10">
         {/* Card header */}
         <div className="mb-5 flex items-start justify-between gap-3">
           <div>
@@ -482,9 +483,9 @@ function SeccionCTAFinal() {
   return (
     <section aria-labelledby="cta-titulo" className="relative overflow-hidden bg-marca-900 py-16 sm:py-20">
       {/* Decorative emerald glow */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute left-[30%] top-0 h-64 w-64 rounded-full bg-acento-500/10 blur-3xl" />
-        <div className="absolute right-[20%] bottom-0 h-48 w-48 rounded-full bg-acento-500/8 blur-2xl" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden will-change-transform">
+        <div className="absolute left-[30%] top-0 h-64 w-64 rounded-full bg-acento-500/10 blur-xl" />
+        <div className="absolute right-[20%] bottom-0 h-48 w-48 rounded-full bg-acento-500/10 blur-lg" />
       </div>
 
       <div className="contenedor relative text-center">

@@ -31,7 +31,7 @@ export function Header() {
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
 
   return (
-    <header className="sticky top-0 z-40 border-b border-marca-900/20 bg-marca-800 shadow-sm">
+    <header className="sticky top-0 z-40 border-b border-marca-900/20 bg-marca-800 shadow-sm will-change-transform">
       <a href="#contenido-principal" className="saltar-contenido">
         Ir al contenido principal
       </a>

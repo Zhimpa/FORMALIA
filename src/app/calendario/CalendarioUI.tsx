@@ -53,6 +53,10 @@ const ESTADO_ESTILOS: Record<EstadoFecha, { fila: string; badge: string; texto: 
 function BadgeEstado({ fechaStr }: { fechaStr: string }) {
   const estado = clasificar(fechaStr);
   const dias = diasRestantes(fechaStr);
+  return <BadgeEstadoPrecomputed estado={estado} dias={dias} />;
+}
+
+function BadgeEstadoPrecomputed({ estado, dias }: { estado: EstadoFecha; dias: number }) {
   const estilos = ESTADO_ESTILOS[estado];
 
   let label: string;
@@ -162,6 +166,7 @@ export function CalendarioUI() {
               <tbody>
                 {meses.map((mes) => {
                   const fechaStr = mes.porDigito[digito];
+                  const dias = diasRestantes(fechaStr);
                   const estado = clasificar(fechaStr);
                   return (
                     <tr
@@ -193,7 +198,7 @@ export function CalendarioUI() {
                         </span>
                       </td>
                       <td className="px-4 py-3">
-                        <BadgeEstado fechaStr={fechaStr} />
+                        <BadgeEstadoPrecomputed estado={estado} dias={dias} />
                       </td>
                     </tr>
                   );

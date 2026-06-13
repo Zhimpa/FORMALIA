@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import {
   PREGUNTAS,
   calcularResultado,
@@ -26,15 +26,18 @@ export function WizardRegimen() {
   const [respuestas, setRespuestas] = useState<Respuestas>({});
 
   const enResultado = paso >= PREGUNTAS.length;
-  const resultado = enResultado && wizardCompleto(respuestas)
-    ? calcularResultado(respuestas)
-    : null;
 
+  // useMemo evita recalcular el resultado en cada render — solo recalcula cuando respuestas cambia
+  const resultado = useMemo(
+    () => (enResultado && wizardCompleto(respuestas) ? calcularResultado(respuestas) : null),
+    [enResultado, respuestas],
+  );
+
+  // useCallback sin dependencias: usa actualizaciones funcionales para no capturar respuestas en el closure
   const seleccionar = useCallback((preguntaId: keyof Respuestas, valor: string) => {
-    const nuevas = { ...respuestas, [preguntaId]: valor as never };
-    setRespuestas(nuevas);
+    setRespuestas((prev) => ({ ...prev, [preguntaId]: valor as never }));
     setPaso((p) => p + 1);
-  }, [respuestas]);
+  }, []);
 
   const retroceder = () => setPaso((p) => Math.max(0, p - 1));
 
@@ -127,14 +130,13 @@ function PreguntaActual({ paso, respuestas, onSeleccionar, onRetroceder }: Pregu
           </p>
 
           {/* Opciones */}
-          <div className="mt-6 space-y-3" role="list">
+          <div className="mt-6 space-y-3" role="group" aria-label={`Opciones para: ${pregunta.texto}`}>
             {pregunta.opciones.map((opcion) => {
               const seleccionada = valorActual === opcion.valor;
               return (
                 <button
                   key={opcion.valor}
                   type="button"
-                  role="listitem"
                   onClick={() => onSeleccionar(pregunta.id, opcion.valor)}
                   className={cn(
                     "w-full rounded-xl border-2 px-5 py-4 text-left transition-all duration-150",

@@ -240,7 +240,7 @@ const FAQS: FAQ[] = [
         <p>
           En <strong>RER, RMT y Régimen General</strong>, igual debes presentar tu
           declaración mensual (PDT 621 / SIRE) dentro del plazo, marcando{" "}
-          <strong>"sin operaciones"</strong> (declaración en cero). No presentarla es
+          <strong>&ldquo;sin operaciones&rdquo;</strong> (declaración en cero). No presentarla es
           una infracción así no hayas vendido.
         </p>
         <p>
