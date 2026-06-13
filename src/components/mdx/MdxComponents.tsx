@@ -1,5 +1,6 @@
 import type { MDXComponents } from "mdx/types";
 import { Tooltip } from "@/components/ui/Tooltip";
+import { GlosarioLink } from "@/components/ui/GlosarioLink";
 import { Resumen } from "./Resumen";
 import { Advertencia } from "./Advertencia";
 
@@ -100,6 +101,7 @@ export function getMdxComponents(): MDXComponents {
 
     // Custom components injected into MDX
     Tooltip,
+    GlosarioLink,
     Resumen,
     Advertencia,
   };

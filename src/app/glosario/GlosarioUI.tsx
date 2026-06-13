@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useId } from "react";
+import { useState, useId, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import {
   TERMINOS,
@@ -14,6 +14,12 @@ import {
 export function GlosarioUI() {
   const inputId = useId();
   const [busqueda, setBusqueda] = useState("");
+
+  // Pre-rellena la búsqueda desde ?q= (usado por GlosarioLink para llegar al término)
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("q");
+    if (q) setBusqueda(q);
+  }, []);
 
   const q = normalizar(busqueda.trim());
 

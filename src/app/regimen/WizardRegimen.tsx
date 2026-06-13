@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import { track } from "@vercel/analytics";
 import {
@@ -244,6 +245,13 @@ function PreguntaActual({ paso, respuestas, onSeleccionar, onRetroceder }: Pregu
 // Pantalla de resultado
 // ---------------------------------------------------------------------------
 
+const TERMINOS_POR_REGIMEN: Record<RegimeId, string[]> = {
+  NRUS: ["NRUS", "RUC", "Boleta de venta", "UIT", "IGV"],
+  RER:  ["RER", "IGV", "Crédito fiscal", "Pago a cuenta", "Factura electrónica", "UIT"],
+  RMT:  ["RMT", "IGV", "Impuesto a la Renta", "Pago a cuenta", "REMYPE", "Factura electrónica"],
+  RG:   ["Régimen General", "IGV", "Impuesto a la Renta", "Pago a cuenta", "CTS", "Gratificación"],
+};
+
 const COLORES_REGIMEN: Record<RegimeId, { fondo: string; texto: string; borde: string; badge: string }> = {
   NRUS: {
     fondo: "bg-emerald-50",
@@ -416,6 +424,30 @@ function Resultado({ resultado, onReiniciar }: ResultadoProps) {
           </CardBody>
         </Card>
       )}
+
+      {/* Conceptos clave de este resultado */}
+      <div className="rounded-xl border border-marca-100 bg-marca-50 p-4 sm:p-5">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-marca-600">
+          Conceptos clave de este resultado
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {TERMINOS_POR_REGIMEN[regimenRecomendado].map((t) => (
+            <Link
+              key={t}
+              href={`/glosario?q=${encodeURIComponent(t)}`}
+              className="rounded-full border border-marca-200 bg-white px-3 py-1 text-xs font-medium text-marca-700 transition-colors hover:bg-marca-100 hover:text-marca-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-500"
+            >
+              {t}
+            </Link>
+          ))}
+          <Link
+            href="/glosario"
+            className="rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs font-medium text-neutral-500 transition-colors hover:bg-neutral-100 hover:text-neutral-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400"
+          >
+            Ver glosario completo →
+          </Link>
+        </div>
+      </div>
 
       {/* Compartir / Descargar */}
       <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 sm:p-5">
