@@ -357,7 +357,7 @@ function Resultado({ resultado, onReiniciar }: ResultadoProps) {
       </div>
 
       <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <UltimaVerificacion fecha="junio 2026" fuente="SUNAT · datos/investigacion-contable-peru.md" />
+        <UltimaVerificacion fecha="junio 2026" fuente="SUNAT / MEF / D.Leg. 937, 968, 1269" />
         <div className="flex flex-wrap gap-3">
           <Button variante="secundario" tamaño="sm" onClick={onReiniciar}>
             ↺ Volver a empezar

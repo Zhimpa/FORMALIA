@@ -2,7 +2,7 @@
  * Lógica pura del wizard "¿Qué régimen tributario me conviene?".
  * Sin dependencias de React. Importable en tests y en el componente UI.
  *
- * Fuente normativa: datos/investigacion-contable-peru.md §Regímenes Tributarios SUNAT 2026
+ * Fuente normativa: SUNAT / MEF — D.Leg. 937, 968, 1269 (Regímenes Tributarios 2026)
  */
 
 import {
