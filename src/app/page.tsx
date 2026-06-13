@@ -219,7 +219,7 @@ function SeccionHero() {
 
             {/* Última verificación */}
             <div className="mt-5">
-              <UltimaVerificacion fecha="junio 2026" fuente="SUNAT / MEF / MTPE" className="border-white/20 bg-white/10 text-marca-200" />
+              <UltimaVerificacion fecha="junio 2026" fuente="SUNAT / MEF / MTPE" className="border-white/25 bg-white/10 text-white" />
             </div>
 
             {/* Disclaimer — text-marca-300 = 8.1:1 sobre bg-marca-900 ✓ AA */}
@@ -241,9 +241,8 @@ function SeccionHero() {
 
 function MockHeroUI() {
   return (
-    <div className="relative">
-      {/* Main card — z-10 para que su contenido siempre gane a los badges decorativos */}
-      <div className="relative z-10 rounded-2xl border border-white/15 bg-marca-800 p-6 shadow-2xl ring-1 ring-inset ring-white/10">
+    <div>
+      <div className="rounded-2xl border border-white/15 bg-marca-800 p-6 shadow-2xl ring-1 ring-inset ring-white/10">
         {/* Card header */}
         <div className="mb-5 flex items-start justify-between gap-3">
           <div>
@@ -301,31 +300,6 @@ function MockHeroUI() {
         </div>
       </div>
 
-      {/* Floating card — IGV
-          Oculto en lg (1024-1279 px) donde colisiona; visible en xl (1280+).
-          En xl, z-10 de la tarjeta principal resuelve cualquier overlap residual. */}
-      <div
-        className="hidden xl:block absolute -bottom-5 -left-6 rounded-xl border border-white/10 bg-marca-700 px-4 py-3 shadow-xl"
-        aria-hidden="true"
-      >
-        <p className="text-xs text-marca-400">IGV neto (mayo)</p>
-        <p className="text-xl font-bold text-white">S/ 1,620</p>
-        <p className="mt-0.5 flex items-center gap-1 text-xs font-medium text-acento-400">
-          <span>↑</span> Calculado al instante
-        </p>
-      </div>
-
-      {/* Floating badge — vencimiento
-          Oculto en lg. En xl: bajado a top-[4.5rem] (72 px) para quedar
-          por debajo de la fila del header (~52 px) sin tapar "✓ Recomendado".
-          z-10 de la tarjeta principal protege el texto en cualquier overlap. */}
-      <div
-        className="hidden xl:block absolute -right-4 top-[4.5rem] rounded-xl border border-white/10 bg-marca-700 px-3 py-2.5 shadow-xl"
-        aria-hidden="true"
-      >
-        <p className="text-xs font-semibold text-acento-300">Vence 12/06/2026</p>
-        <p className="text-xs text-marca-400">Dígito RUC: 3</p>
-      </div>
     </div>
   );
 }
