@@ -136,9 +136,9 @@ export function Footer() {
           </nav>
         </div>
 
-        {/* Disclaimer — neutral-400 = 6.9:1 sobre fondo combinado ✓ */}
-        <div className="mt-10 rounded-lg border border-neutral-700 bg-neutral-800/50 p-4 text-xs leading-relaxed text-neutral-400">
-          <p className="font-semibold text-neutral-200">Aviso legal</p>
+        {/* Disclaimer */}
+        <div className="mt-10 rounded-lg border border-neutral-700 bg-neutral-800/50 p-4 text-xs leading-relaxed text-neutral-300">
+          <p className="font-semibold text-white">Aviso legal</p>
           <p className="mt-1">
             La información publicada en este sitio tiene carácter{" "}
             <strong className="font-semibold text-white">
@@ -149,8 +149,7 @@ export function Footer() {
             Los montos, tasas y plazos pueden variar por cambios normativos. Verifica
             siempre en las fuentes oficiales: SUNAT, SUNARP, MTPE e INDECOPI.
           </p>
-          {/* neutral-400 = 6.9:1 ✓ (era neutral-500 = 3.4:1 ✗) */}
-          <p className="mt-2 text-neutral-400">
+          <p className="mt-2 text-neutral-300">
             Referencia normativa 2026: UIT S/ 5,500 (D.S. 301-2025-EF) · RMV S/ 1,130 · IGV 18%.
           </p>
         </div>
