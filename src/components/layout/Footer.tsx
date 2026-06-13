@@ -139,7 +139,7 @@ export function Footer() {
         {/* Disclaimer */}
         <div className="mt-10 rounded-lg border border-neutral-700 bg-neutral-800/50 p-4 text-xs leading-relaxed text-white">
           <p className="font-semibold text-white">Aviso legal</p>
-          <p className="mt-1">
+          <p className="mt-1 text-white">
             La información publicada en este sitio tiene carácter{" "}
             <strong className="font-semibold text-white">
               estrictamente referencial y educativo
